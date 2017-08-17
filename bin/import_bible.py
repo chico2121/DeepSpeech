@@ -20,7 +20,7 @@ from util.text import validate_label
 
 
 def _download_and_preprocess_data(data_dir):
-    data_dir = os.path.join(data_dir, "bible")
+    # data_dir = os.path.join(data_dir, "bible")
     files = []
 
     for root, dirnames, filenames in os.walk(data_dir):
@@ -33,6 +33,9 @@ def _download_and_preprocess_data(data_dir):
     dataset.to_csv(os.path.join(data_dir, "test.csv"), index=False, encoding='utf-8')
 
 def concatenate_trans(save_dir, trans, dataset_csv):
+    trans = os.path.join(save_dir, trans)
+    dataset_csv = os.path.join(save_dir, dataset_csv)
+
     f1 = codecs.open(trans, "rb", encoding="utf-8")
     f2 = open(dataset_csv, "r")
     csvReader_trans = csv.reader(f1)
@@ -103,7 +106,7 @@ def _delete_special_characters(bibledata_path, csvfile):
 
 
 if __name__ == "__main__":
-    # _download_and_preprocess_data("/home/jonghyuk/pycharmProjects/DeepSpeech/data")
-    # concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/bible/", "/home/jonghyuk/pycharmProjects/DeepSpeech/data/text.csv", "/home/jonghyuk/pycharmProjects/DeepSpeech/data/bible/test.csv")
-    # _delete_special_characters("/home/jonghyuk/pycharmProjects/DeepSpeech/data/bible/", "bible.csv")
-    _split_sets("/home/jonghyuk/pycharmProjects/DeepSpeech/data/bible/", "bible_delete_special_characters.csv")
+    _download_and_preprocess_data(sys.argv[1]) #/home/jonghyuk/pycharmProjects/DeepSpeech/data/bible/
+    concatenate_trans(sys.argv[1], "text.csv", "test.csv")
+    _delete_special_characters(sys.argv[1], "bible.csv")
+    _split_sets(sys.argv[1], "bible_delete_special_characters.csv")
