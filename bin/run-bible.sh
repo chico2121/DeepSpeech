@@ -22,7 +22,7 @@ else
     checkpoint_dir=$(python -c 'from xdg import BaseDirectory as xdg; print(xdg.save_data_path("deepspeech/bible"))')
 fi
 
-python -u DeepSpeech.py \
+CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
   --train_files "$COMPUTE_DATA_DIR/bible-train.csv" \
   --dev_files "$COMPUTE_DATA_DIR/bible-dev.csv" \
   --test_files "$COMPUTE_DATA_DIR/bible-test.csv" \
