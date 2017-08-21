@@ -120,7 +120,7 @@ tf.app.flags.DEFINE_integer ('summary_secs',     0,           'interval in secon
 
 # Geometry
 
-tf.app.flags.DEFINE_integer ('n_hidden',         2048,        'layer width to use when initialising layers')
+tf.app.flags.DEFINE_integer ('n_hidden',         512,        'layer width to use when initialising layers') #2048
 
 # Initialization
 
