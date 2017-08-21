@@ -26,12 +26,14 @@ python -u DeepSpeech.py \
   --train_files "$COMPUTE_DATA_DIR/bible-train.csv" \
   --dev_files "$COMPUTE_DATA_DIR/bible-dev.csv" \
   --test_files "$COMPUTE_DATA_DIR/bible-test.csv" \
-  --train_batch_size 32 \
-  --dev_batch_size 32 \
-  --test_batch_size 32 \
+  --n_hidden 1024 \
+  --train_batch_size 8 \
+  --dev_batch_size 8 \
+  --test_batch_size 8 \
   --learning_rate 0.0001 \
-  --epoch=20 \
+  --epoch=10 \
   --display_step 1 \
   --validation_step 5 \
+  --summary_secs 10 \
   --checkpoint_dir "cps/bible" \
   "$@"

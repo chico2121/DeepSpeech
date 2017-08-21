@@ -685,10 +685,11 @@ def log_variable(variable, gradient=None):
             tf.summary.histogram(name='%s/gradients' % name, values=grad_values)
 
 
-def log_grads_and_vars(grads_and_vars):
+def log_grads_and_vars(grads_and_vars, loss):
     r'''
     Let's also introduce a helper function for logging collections of gradient/variable tuples.
     '''
+    tf.summary.scalar(name='loss', tensor=loss)
     for gradient, variable in grads_and_vars:
         log_variable(variable, gradient=gradient)
 
@@ -1452,7 +1453,7 @@ def train(server=None):
     avg_tower_gradients = average_gradients(gradients)
 
     # Add summaries of all variables and gradients to log
-    log_grads_and_vars(avg_tower_gradients)
+    log_grads_and_vars(avg_tower_gradients, loss)
 
     # Op to merge all summaries for the summary hook
     merge_all_summaries_op = tf.summary.merge_all()
