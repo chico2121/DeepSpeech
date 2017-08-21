@@ -26,9 +26,9 @@ CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
   --train_files "$COMPUTE_DATA_DIR/bible-train-100-d.csv" \
   --dev_files "$COMPUTE_DATA_DIR/bible-dev-100-d.csv" \
   --test_files "$COMPUTE_DATA_DIR/bible-test-100-d.csv" \
-  --train_batch_size 16 \
-  --dev_batch_size 16 \
-  --test_batch_size 16 \
+  --train_batch_size 32 \
+  --dev_batch_size 32 \
+  --test_batch_size 32 \
   --learning_rate 0.0001 \
   --epoch=20 \
   --display_step 1 \
