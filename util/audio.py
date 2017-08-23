@@ -19,7 +19,7 @@ except ImportError:
             print('------------------------------------------------------------------------')
 
         # Get mfcc coefficients
-        features = mfcc(audio, nfft=551, samplerate=fs, numcep=numcep) # nfft : 512(default)
+        features = mfcc(audio, nfft=1103, samplerate=fs, numcep=numcep) # nfft : 512(default)
 
         # We only keep every second feature (BiRNN stride = 2)
         features = features[::2]
