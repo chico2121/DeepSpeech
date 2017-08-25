@@ -23,7 +23,7 @@ else
 fi
 
 CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
-  --train_files "$COMPUTE_DATA_DIR/bible-train.csv" \
+  --train_files "$COMPUTE_DATA_DIR/bible-train2.csv" \
   --dev_files "$COMPUTE_DATA_DIR/bible-dev.csv" \
   --test_files "$COMPUTE_DATA_DIR/bible-test.csv" \
   --n_hidden 1024 \
