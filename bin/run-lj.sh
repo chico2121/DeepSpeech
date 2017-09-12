@@ -31,7 +31,7 @@ CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
   --dev_batch_size 8 \
   --test_batch_size 8 \
   --learning_rate 0.0001 \
-  --epoch=10 \
+  --epoch=1000 \
   --display_step 1 \
   --validation_step 3 \
   --summary_secs 10 \
