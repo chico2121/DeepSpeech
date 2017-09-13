@@ -38,4 +38,5 @@ CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
   --checkpoint_dir "cps/lj" \
   --export_dir "exp/lj" \
   --max_to_keep 10000 \
+  --early_stop False \
   "$@"
