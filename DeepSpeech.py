@@ -1497,7 +1497,9 @@ def train(server=None):
 
     # Hook wih number of checkpoint files to save in checkpoint_dir
     if FLAGS.max_to_keep > 0:
-        saver = tf.train.Saver(max_to_keep=FLAGS.max_to_keep)
+        # saver = tf.train.Saver(max_to_keep=FLAGS.max_to_keep)
+        #change max_to_keep parameter > for now, all checkpoint is saved
+        saver = tf.train.Saver(max_to_keep=None)
         hooks.append(tf.train.CheckpointSaverHook(checkpoint_dir=FLAGS.checkpoint_dir, save_secs=FLAGS.checkpoint_secs, saver=saver))
 
     # The MonitoredTrainingSession takes care of session initialization,
