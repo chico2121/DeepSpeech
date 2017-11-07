@@ -77,7 +77,18 @@ def concatenate_trans(save_dir, dataset_csv):
 
 
 if __name__ == "__main__":
-    concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "all_te.csv")
-    concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "sup_per_2.csv")
-    concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "sup_per_2_tr.csv")
-    concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "sup_per_2_va.csv")
+    curr_file_path = os.path.realpath(__file__)
+    data_base_path = os.path.join(os.path.dirname(os.path.dirname(curr_file_path)), 'data')
+    lj_data_base_path = os.path.join(data_base_path, 'lj')
+    # concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "all_te.csv")
+    # concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "all_te.csv")
+    # concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "sup_per_2.csv")
+    # concatenate_trans("/home/jonghyuk/pycharmProjects/DeepSpeech/data/lj/", "sup_per_2_tr.csv")
+
+    # concatenate_trans(lj_data_base_path, "all_te.csv")
+    # concatenate_trans(lj_data_base_path, "sup_per_2_va.csv")
+    # concatenate_trans(lj_data_base_path, "sup_per_2.csv")
+    # concatenate_trans(lj_data_base_path, "sup_per_2_tr.csv")
+    # concatenate_trans(lj_data_base_path, "sup_per_2_va.csv")
+    concatenate_trans(lj_data_base_path, "unsup_va.csv")
+    concatenate_trans(lj_data_base_path, "unsup_tr.csv")

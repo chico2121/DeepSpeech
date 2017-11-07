@@ -96,8 +96,8 @@ tf.app.flags.DEFINE_integer ('validation_step',  0,           'number of epochs 
 # Checkpointing
 
 tf.app.flags.DEFINE_string  ('checkpoint_dir',   '',          'directory in which checkpoints are stored - defaults to directory "deepspeech/checkpoints" within user\'s data home specified by the XDG Base Directory Specification')
-tf.app.flags.DEFINE_integer ('checkpoint_secs',  600,         'checkpoint saving interval in seconds')
-tf.app.flags.DEFINE_integer ('max_to_keep',      5,           'number of checkpoint files to keep - default value is 5')
+tf.app.flags.DEFINE_integer ('checkpoint_secs',  3600,         'checkpoint saving interval in seconds')
+tf.app.flags.DEFINE_integer ('max_to_keep',      2400,           'number of checkpoint files to keep - default value is 5')
 
 # Exporting
 
@@ -1497,9 +1497,9 @@ def train(server=None):
 
     # Hook wih number of checkpoint files to save in checkpoint_dir
     if FLAGS.max_to_keep > 0:
-        # saver = tf.train.Saver(max_to_keep=FLAGS.max_to_keep)
+        saver = tf.train.Saver(max_to_keep=FLAGS.max_to_keep)
         #change max_to_keep parameter > for now, all checkpoint is saved
-        saver = tf.train.Saver(max_to_keep=None)
+        # saver = tf.train.Saver(max_to_keep=None)
         hooks.append(tf.train.CheckpointSaverHook(checkpoint_dir=FLAGS.checkpoint_dir, save_secs=FLAGS.checkpoint_secs, saver=saver))
 
     # The MonitoredTrainingSession takes care of session initialization,

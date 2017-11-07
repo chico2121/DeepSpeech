@@ -31,12 +31,14 @@ CUDA_VISIBLE_DEVICES=0 python -u DeepSpeech.py \
   --dev_batch_size 8 \
   --test_batch_size 8 \
   --learning_rate 0.0001 \
-  --epoch=1000 \
+  --epoch=200 \
   --display_step 1 \
-  --validation_step 3 \
+  --validation_step 1 \
   --summary_secs 10 \
-  --checkpoint_dir "cps/lj" \
-  --export_dir "exp/lj" \
-  --max_to_keep 10000 \
+  --checkpoint_dir "cps/lj/half" \
+  --export_dir "exp/lj/half" \
+  --max_to_keep 2400 \
   --early_stop False \
-  "$@"
+  --checkpoint_secs 3600 \
+  --coord_port 2501 \
+  "$@" > lj-half-200ep-1.out 2>&1
